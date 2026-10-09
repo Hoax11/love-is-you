@@ -1,0 +1,168 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #281020 0%, #100910 48%, #070609 100%);
+  color: #ffe5ef;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.surprise {
+  position: relative;
+  min-height: 100vh;
+  padding: 65px 20px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.eyebrow {
+  color: #ff8fbd;
+  letter-spacing: 5px;
+  font: 12px Arial, sans-serif;
+  animation: fadeUp 1s ease both;
+}
+
+h1 {
+  margin: 22px 0 16px;
+  font-size: clamp(30px, 6vw, 48px);
+  line-height: 1.25;
+  font-weight: normal;
+  animation: fadeUp 1.4s ease both;
+}
+
+.intro {
+  color: #d9b6c6;
+  font-size: 18px;
+  line-height: 1.7;
+  animation: fadeUp 1.8s ease both;
+}
+
+.qr-card {
+  width: min(100%, 340px);
+  margin-top: 28px;
+  padding: 20px;
+  background: rgba(255, 235, 245, 0.06);
+  border: 1px solid rgba(255, 125, 180, 0.45);
+  border-radius: 24px;
+  box-shadow: 0 0 45px rgba(255, 60, 140, 0.12);
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: revealQR 1.4s ease 2.5s forwards;
+}
+
+.qr-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.qr-caption {
+  margin: 18px 0 10px;
+  font: 14px/1.6 Arial, sans-serif;
+  color: #ffe0ed;
+}
+
+.letter-link {
+  display: inline-block;
+  color: #ff9bc4;
+  font: 14px Arial, sans-serif;
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 155, 196, 0.5);
+  border-radius: 30px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.letter-link:hover {
+  background: rgba(255, 100, 165, 0.15);
+  transform: scale(1.04);
+}
+
+.signature {
+  margin-top: 30px;
+  color: #b98da3;
+  font-size: 15px;
+  animation: fadeUp 1.5s ease 3s both;
+}
+
+.heart {
+  position: absolute;
+  color: #ff579e;
+  opacity: 0.5;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.heart-one {
+  top: 12%;
+  left: 12%;
+  font-size: 35px;
+}
+
+.heart-two {
+  top: 22%;
+  right: 12%;
+  font-size: 25px;
+  animation-delay: 1s;
+}
+
+.heart-three {
+  bottom: 12%;
+  right: 17%;
+  font-size: 40px;
+  animation-delay: 2s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealQR {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .qr-card {
+    opacity: 1;
+    transform: none;
+  }
+}
