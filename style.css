@@ -4733,3 +4733,9 @@ body {
     }
 
 }
+a.secret-button {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
