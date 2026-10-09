@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>9 лет за партой, 1 год в сердце ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<audio id="music-1"></audio>
+<audio id="music-2"></audio>
+
+
+
+    <!-- ================================= -->
+    <!-- СЦЕНА 1 — ВСТУПЛЕНИЕ -->
+    <!-- ================================= -->
+
+    <section
+        id="scene-intro"
+        class="scene scene-intro"
+    >
+
+        <div class="sky"></div>
+
+        <div class="light-ray"></div>
+
+        <div class="stars"></div>
+
+
+        <div class="intro-content">
+
+            <div class="envelope">
+                💌
+            </div>
+
+            <h1 id="intro-title"></h1>
+
+            <p id="intro-text"></p>
+
+            <button
+                id="open-button"
+                class="main-button"
+            >
+                Открыть конверт
+            </button>
+
+        </div>
+
+
+        <div class="signature">
+            Made with ❤️ by Ярослав
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================= -->
+    <!-- СЦЕНА 2 — ШКОЛА -->
+    <!-- ================================= -->
+
+    <section
+        id="scene-school"
+        class="scene scene-school hidden"
+    >
+
+
+        <!-- Школьные колокольчики -->
+
+<div class="bell bell-1">
+    🔔
+</div>
+
+<div class="bell bell-2">
+    🔔
+</div>
+
+<div class="bell bell-3">
+    🔔
+</div>
+
+<div class="bell bell-4">
+    🔔
+</div>
+
+
+        <!-- Заголовок -->
+
+        <div class="school-header">
+
+            <div class="chapter">
+                ГЛАВА 1
+            </div>
+
+            <h2>
+                9 лет. Школьный вальс
+            </h2>
+
+            <p>
+                Иногда самые важные истории
+                начинаются совсем незаметно...
+            </p>
+
+        </div>
+
+
+        <!-- Школьные иконки -->
+
+        <div class="school-icons">
+
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+            <span class="school-icon">🏫</span>
+
+        </div>
+
+
+        <!-- Карточка воспоминания -->
+
+        <div class="memory-card">
+
+
+            <!-- Заглушка фотографии -->
+
+            <div class="photo-frame">
+
+    <div class="photo-container">
+
+        <!--
+            Пока здесь тестовая картинка.
+            Позже заменим её на вашу фотографию.
+        -->
+
+        <img
+            id="school-photo"
+            src="images/class.jpg"
+            alt="Наше школьное фото"
+        >
+
+        <!-- Мягкая подсветка лица -->
+
+        <div
+            id="face-light"
+            class="face-light"
+        ></div>
+
+        <!-- Затемнение краёв -->
+
+        <div class="photo-vignette"></div>
+
+    </div>
+
+</div>
+
+
+            <!-- Текст -->
+
+            <div class="memory-text">
+
+                <h3>
+                    Наш школьный мир ❤️
+                </h3>
+
+                <p id="school-text"></p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Подсказка -->
+
+        <div
+            id="school-hint"
+            class="school-hint"
+        >
+
+            Наведи курсор на 🏫
+
+        </div>
+
+
+        <!-- Кнопка -->
+
+        <button
+            id="school-next"
+            class="school-button"
+        >
+
+            Продолжить →
+
+        </button>
+
+
+    </section>
+
+<!-- ================================= -->
+<!-- СЦЕНА 3 — РАССТОЯНИЕ -->
+<!-- ================================= -->
+
+<section
+    id="scene-distance"
+    class="scene scene-distance hidden"
+>
+
+    <!-- Звёздное небо -->
+
+    <div class="distance-stars"></div>
+
+
+    <!-- Заголовок -->
+
+    <div class="distance-header">
+
+        <div class="chapter">
+            ГЛАВА 2
+        </div>
+
+        <h2>
+            Расстояние
+        </h2>
+
+        <p>
+            Иногда между двумя людьми —
+            сотни километров.
+        </p>
+
+    </div>
+
+
+    <!-- Карта -->
+
+    <div
+        id="distance-map"
+        class="distance-map"
+    >
+
+
+        <!-- Линия между городами -->
+
+        <div
+            id="distance-line"
+            class="distance-line"
+        ></div>
+
+
+        <!-- Сердце -->
+
+        <div
+            id="travel-heart"
+            class="travel-heart"
+        >
+            ❤️
+        </div>
+
+
+        <!-- Город 1 -->
+
+        <div
+            id="city-kamensk"
+            class="city-point city-one"
+        >
+
+            <div class="point">
+                📍
+            </div>
+
+            <div class="city-name">
+                Каменск-Уральский
+            </div>
+
+            <div class="city-label">
+                Здесь я
+            </div>
+
+        </div>
+
+
+        <!-- Город 2 -->
+
+        <div
+            id="city-ekb"
+            class="city-point city-two"
+        >
+
+            <div class="point">
+                📍
+            </div>
+
+            <div class="city-name">
+                Екатеринбург
+            </div>
+
+            <div class="city-label">
+                Здесь ты
+            </div>
+
+        </div>
+
+
+        <!-- Подсказка -->
+
+        <div
+            id="distance-hint"
+            class="distance-hint"
+        >
+
+            Проведи пальцем от меня к тебе ❤️
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Сообщение -->
+
+    <div
+        id="distance-message"
+        class="distance-message"
+    >
+
+        <h3>
+            Расстояние — это не пропасть.
+        </h3>
+
+        <p>
+            Ты уехала в Екатеринбург,
+            а я остался в Каменске.
+            Между нами появились километры,
+            но не появилось расстояния между сердцами.
+        </p>
+
+        <p>
+            Ты уехала, а моё сердце
+            осталось с тобой. ❤️
+        </p>
+
+    </div>
+
+
+    <!-- Кнопка -->
+
+    <button
+        id="distance-next"
+        class="distance-button"
+    >
+
+        Дальше →
+
+    </button>
+
+
+</section>
+<!-- ================================= -->
+<!-- СЦЕНА 4 — 1 ГОД СЧАСТЬЯ -->
+<!-- ================================= -->
+
+<section
+    id="scene-year"
+    class="scene scene-year hidden"
+>
+
+    <!-- Лепестки -->
+
+    <div class="petals">
+
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+        <span>🌸</span>
+
+    </div>
+
+
+    <!-- Заголовок -->
+
+    <div class="year-header">
+
+        <div class="chapter">
+            ГЛАВА 3
+        </div>
+
+        <h2>
+            1 год счастья
+        </h2>
+
+        <p>
+            А теперь самое главное...
+        </p>
+
+    </div>
+
+
+    <!-- Счётчик -->
+
+    <div class="counter-container">
+
+        <div
+            id="day-counter"
+            class="day-counter"
+        >
+            0
+        </div>
+
+        <div class="counter-label">
+            дней вместе ❤️
+        </div>
+
+    </div>
+
+
+    <!-- Карточка -->
+
+    <div class="year-card">
+
+
+        <!-- Фотография -->
+
+        <div class="year-photo">
+
+            <img
+                id="year-photo"
+                src="images/year.jpg"
+                alt="Наше самое счастливое фото"
+            >
+
+            <div class="year-photo-glow"></div>
+
+        </div>
+
+
+        <!-- Текст -->
+
+        <div class="year-text">
+
+            <h3>
+                Целых 365 дней ❤️
+            </h3>
+
+            <p id="year-message"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Видео -->
+
+    <div
+        id="video-container"
+        class="video-container"
+    >
+
+        <video
+            id="year-video"
+            controls
+            playsinline
+        >
+
+            <source
+                src="images/video.mp4"
+                type="video/mp4"
+            >
+
+            Твой браузер не поддерживает видео.
+
+        </video>
+
+        <p>
+            Маленькое сообщение от меня ❤️
+        </p>
+
+    </div>
+
+
+    <!-- Кнопка -->
+
+    <button
+        id="year-next"
+        class="year-button"
+    >
+
+        У меня есть ещё кое-что... →
+
+    </button>
+
+
+</section>
+<!-- ================================= -->
+<!-- ФИНАЛ — БОЛЬШОЕ СЕРДЦЕ -->
+<!-- ================================= -->
+
+<section
+    id="scene-final"
+    class="scene scene-final hidden"
+>
+
+    <!-- Звёзды -->
+
+    <div class="final-stars"></div>
+
+
+    <!-- Маленькая точка -->
+
+    <div
+        id="heart-start"
+        class="heart-start"
+    ></div>
+
+
+    <!-- Область сердца -->
+
+    <div
+        id="heart-container"
+        class="heart-container"
+    >
+
+        <svg
+            id="heart-svg"
+            class="heart-svg"
+            viewBox="0 0 500 450"
+        >
+
+            <!-- Контур -->
+
+            <path
+                id="heart-outline"
+                d="M250 400
+                   C220 370 70 270 70 150
+                   C70 70 160 35 250 130
+                   C340 35 430 70 430 150
+                   C430 270 280 370 250 400 Z"
+            />
+
+            <!-- Заполнение -->
+
+            <path
+                id="heart-fill"
+                d="M250 400
+                   C220 370 70 270 70 150
+                   C70 70 160 35 250 130
+                   C340 35 430 70 430 150
+                   C430 270 280 370 250 400 Z"
+            />
+
+        </svg>
+
+
+        <!-- Блик -->
+
+        <div class="heart-shine"></div>
+        <div class="heart-final-glow"></div>
+
+    </div>
+
+
+    <!-- Частицы -->
+
+    <div
+        id="heart-particles"
+        class="heart-particles"
+    ></div>
+
+
+    <!-- Финальный текст -->
+
+    <div
+        id="final-message"
+        class="final-message"
+    >
+
+        <div class="final-years">
+
+            9 лет в классе + 1 год в сердце
+
+        </div>
+
+
+        <h1>
+            = 10 лет нашей истории
+        </h1>
+
+
+        <p>
+
+            Но это только начало.
+
+            <br><br>
+
+            Ты — единственная,
+            для кого я готов
+            создавать целые миры.
+
+        </p>
+
+
+        <div class="final-love">
+
+            С днём годовщины,
+            моя девочка! ❤️
+
+        </div>
+
+
+        <p>
+
+            Я очень сильно тебя люблю.
+            <br>
+            Скучаю.
+            <br>
+            И скоро мы будем вместе.
+            <br>
+            Навсегда.
+
+        </p>
+
+
+        <div class="final-signature">
+
+            Твой Ярослав ❤️
+
+        </div>
+
+    </div>
+
+
+    <!-- Секретная кнопка -->
+
+    <button
+        id="secret-button"
+        class="secret-button"
+    >
+
+        Нажми на меня,
+        если тоже скучаешь
+
+    </button>
+
+
+    <!-- Made with -->
+
+    <div class="made-with">
+
+        Made with ❤️ by Ярослав
+
+    </div>
+<!-- ================================= -->
+<!-- СЕКРЕТНОЕ ОКНО -->
+<!-- ================================= -->
+
+<div
+    id="secret-modal"
+    class="secret-modal"
+>
+
+    <div class="secret-overlay"></div>
+
+
+    <div class="secret-window">
+
+        <!-- Кнопка закрытия -->
+
+        <button
+            id="secret-close"
+            class="secret-close"
+        >
+            ×
+        </button>
+
+
+        <!-- Маленькое сердечко -->
+
+        <div class="secret-heart">
+            ❤️
+        </div>
+
+
+        <!-- Заголовок -->
+
+        <h2>
+            Ты действительно скучаешь? ❤️
+        </h2>
+
+
+        <!-- Текст -->
+
+        <p>
+
+            Я знаю, что иногда тяжело.
+
+            <br><br>
+
+            Но посмотри, сколько мы уже прошли.
+
+            <br><br>
+
+            Эта открытка — моё маленькое
+            обещание тебе.
+
+            <br><br>
+
+            Где бы ты ни была,
+            я всегда найду способ сказать тебе:
+
+            <br>
+
+            <strong>
+                «Я тебя люблю».
+            </strong>
+
+        </p>
+
+
+        <!-- QR -->
+
+        <div class="qr-container">
+
+            <div class="qr-placeholder">
+
+                ❤️
+
+                <span>
+                    Здесь будет QR-код
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p class="qr-text">
+
+            Наведи камеру на QR-код,
+            и я буду рядом ❤️
+
+        </p>
+
+
+        <!-- Закрытие -->
+
+        <button
+            id="secret-close-bottom"
+            class="secret-bottom-button"
+        >
+
+            Я тоже скучаю ❤️
+
+        </button>
+
+    </div>
+
+</div>
+</section>
+<!-- ================================= -->
+<!-- СЦЕНА — НАШ ГОД -->
+<!-- ================================= -->
+
+<section
+    id="scene-memories"
+    class="scene scene-memories hidden"
+>
+
+
+    <!-- Заголовок -->
+
+    <div class="memories-header">
+
+        <div class="chapter">
+            НАША ИСТОРИЯ
+        </div>
+
+        <h2>
+            12 месяцев вместе ❤️
+        </h2>
+
+        <p>
+            Нажми на месяц,
+            чтобы вспомнить его
+        </p>
+
+    </div>
+
+
+    <!-- Месяцы -->
+
+    <div
+        id="months-grid"
+        class="months-grid"
+    >
+
+        <button
+            class="month-button"
+            data-month="january"
+        >
+            Январь
+        </button>
+
+        <button
+            class="month-button"
+            data-month="february"
+        >
+            Февраль
+        </button>
+
+        <button
+            class="month-button"
+            data-month="march"
+        >
+            Март
+        </button>
+
+        <button
+            class="month-button"
+            data-month="april"
+        >
+            Апрель
+        </button>
+
+        <button
+            class="month-button"
+            data-month="may"
+        >
+            Май
+        </button>
+
+        <button
+            class="month-button"
+            data-month="june"
+        >
+            Июнь
+        </button>
+
+        <button
+            class="month-button"
+            data-month="july"
+        >
+            Июль
+        </button>
+
+        <button
+            class="month-button"
+            data-month="august"
+        >
+            Август
+        </button>
+
+        <button
+            class="month-button"
+            data-month="september"
+        >
+            Сентябрь
+        </button>
+
+        <button
+            class="month-button"
+            data-month="october"
+        >
+            Октябрь
+        </button>
+
+        <button
+            class="month-button"
+            data-month="november"
+        >
+            Ноябрь
+        </button>
+
+        <button
+            class="month-button"
+            data-month="december"
+        >
+            Декабрь
+        </button>
+
+    </div>
+
+
+    <!-- Галерея -->
+
+    <div
+        id="memory-gallery"
+        class="memory-gallery"
+    >
+
+        <div
+            id="gallery-title"
+            class="gallery-title"
+        ></div>
+
+
+        <div
+            id="gallery-photos"
+            class="gallery-photos"
+        ></div>
+
+    </div>
+
+
+    <!-- Кнопка дальше -->
+
+    <button
+        id="memories-next"
+        class="memories-next"
+    >
+
+        Я всё вспомнила ❤️ →
+
+    </button>
+
+
+</section>
+<!-- ================================= -->
+<!-- ПОЛНОЭКРАННЫЙ ПРОСМОТР ФОТО -->
+<!-- ================================= -->
+
+<div id="photo-modal" class="photo-modal">
+
+    <div class="photo-modal-overlay"></div>
+
+    <button
+        id="photo-close"
+        class="photo-close"
+    >
+        ×
+    </button>
+
+    <button
+        id="photo-prev"
+        class="photo-arrow photo-prev"
+    >
+        ‹
+    </button>
+
+    <div class="photo-viewer">
+
+        <img
+            id="modal-photo"
+            src=""
+            alt="Воспоминание"
+        >
+
+        <div
+            id="photo-counter"
+            class="photo-counter"
+        >
+        </div>
+
+    </div>
+
+    <button
+        id="photo-next"
+        class="photo-arrow photo-next"
+    >
+        ›
+    </button>
+
+</div>
+<audio id="music-1" preload="auto"></audio>
+<audio id="music-2" preload="auto"></audio>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

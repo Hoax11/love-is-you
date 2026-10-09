@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>То, что я не всегда могу сказать ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 30px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(
+                    ellipse at top,
+                    #34203f 0%,
+                    #171326 45%,
+                    #090a13 100%
+                );
+            color: #f8eaf0;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .letter {
+            width: 100%;
+            max-width: 650px;
+            padding: 36px 28px;
+            border: 1px solid rgba(255, 210, 225, 0.2);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.045);
+            box-shadow: 0 0 60px rgba(207, 100, 155, 0.1);
+            animation: appear 1.5s ease both;
+        }
+
+        .heart {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(26px, 5vw, 38px);
+            line-height: 1.25;
+            font-weight: normal;
+            color: #ffd7e5;
+            margin-bottom: 30px;
+        }
+
+        #message {
+            font-size: 18px;
+            line-height: 1.9;
+            white-space: pre-line;
+        }
+
+        .signature {
+            margin-top: 32px;
+            text-align: right;
+            color: #ffc6dc;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .small {
+            margin-top: 32px;
+            text-align: center;
+            color: #c7b5ca;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            50% {
+                transform: scale(1.12);
+                text-shadow: 0 0 25px #ff8bb9;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter {
+                padding: 28px 20px;
+            }
+
+            #message {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="letter">
+        <div class="heart">❤️</div>
+
+        <h1>То, что я не всегда могу сказать вслух…</h1>
+
+        <div id="message"></div>
+
+        <div class="signature" id="signature"></div>
+
+        <div class="small">
+            ЕСЛИ ТЫ ЧИТАЕШЬ ЭТО — ЗНАЧИТ, ТЫ НАШЛА МОЙ СЕКРЕТ
+        </div>
+    </main>
+
+    <script>
+        const paragraphs = [
+            "Знаешь, иногда я думаю о том, насколько удивительно сложилась наша история.",
+
+            "Мы просидели за партами девять лет. Столько обычных школьных дней, разговоров, шуток и воспоминаний. Тогда я даже не мог представить, что однажды ты станешь для меня настолько близким человеком.",
+
+            "А теперь у нас есть целый год, который принадлежит только нам. И если бы мне предложили прожить его заново, я бы снова выбрал тебя.",
+
+            "Мне не нужны идеальные дни, красивые фотографии или какие-то особенные поводы, чтобы быть счастливым рядом с тобой. Для меня важно просто знать, что ты есть в моей жизни. Что я могу услышать твой голос, увидеть твою улыбку, обнять тебя и разделить с тобой даже самые обычные моменты.",
+
+            "Я не знаю, что именно ждёт нас впереди. Но я знаю, что хочу узнавать это вместе с тобой. Хочу, чтобы у нас было ещё много общих воспоминаний, маленьких традиций, смешных историй и моментов, о которых мы однажды будем вспоминать с улыбкой.",
+
+            "Спасибо тебе за этот год. За то, что ты рядом. За то, что из человека, с которым я когда-то просто сидел за партами, ты стала человеком, которого я люблю.",
+
+            "И если когда-нибудь тебе станет грустно или ты вдруг забудешь, насколько ты для меня важна, просто вернись к этому письму. Я хочу, чтобы ты помнила: ты занимаешь в моём сердце особенное место."
+        ];
+
+        const message = document.getElementById("message");
+        const signature = document.getElementById("signature");
+
+        let paragraphIndex = 0;
+
+        function typeParagraph() {
+            if (paragraphIndex >= paragraphs.length) {
+                signature.textContent = "С любовью, твой Яркосик ❤️";
+                return;
+            }
+
+            const paragraph = document.createElement("p");
+            message.appendChild(paragraph);
+
+            const text = paragraphs[paragraphIndex];
+            let letterIndex = 0;
+
+            const timer = setInterval(() => {
+                paragraph.textContent += text[letterIndex];
+                letterIndex++;
+
+                if (letterIndex >= text.length) {
+                    clearInterval(timer);
+                    paragraphIndex++;
+
+                    setTimeout(typeParagraph, 500);
+                }
+            }, 25);
+        }
+
+        typeParagraph();
+    </script>
+</body>
+</html>

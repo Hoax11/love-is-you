@@ -1,0 +1,4735 @@
+/* =========================================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+
+    overflow: hidden;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =========================================
+   ОБЩАЯ СЦЕНА
+========================================= */
+
+.scene {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   СКРЫТАЯ СЦЕНА
+========================================= */
+
+.hidden {
+
+    display: none;
+}
+
+
+/* =========================================
+   СЦЕНА 1
+========================================= */
+
+.scene-intro {
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #25204d 0%,
+            #100d25 45%,
+            #05040c 100%
+        );
+
+    color: white;
+}
+
+
+/* =========================================
+   ЗВЁЗДЫ
+========================================= */
+
+.stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.9) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    opacity: 0.35;
+
+    animation:
+        starsMove 20s linear infinite;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(90px);
+    }
+
+}
+
+
+/* =========================================
+   ЛУЧ
+========================================= */
+
+.light-ray {
+
+    position: absolute;
+
+    top: -30%;
+    left: 50%;
+
+    width: 3px;
+    height: 70%;
+
+    transform:
+        translateX(-50%)
+        rotate(5deg);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+    filter: blur(1px);
+
+    opacity: 0;
+
+    animation:
+        rayAppear 5s ease forwards;
+}
+
+
+@keyframes rayAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            rotate(5deg)
+            translateY(-100px);
+    }
+
+    40% {
+
+        opacity: 0.8;
+    }
+
+    100% {
+
+        opacity: 0.25;
+
+        transform:
+            translateX(-50%)
+            rotate(5deg)
+            translateY(150px);
+    }
+
+}
+
+
+/* =========================================
+   ЦЕНТР СЦЕНЫ 1
+========================================= */
+
+.intro-content {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(850px, 90%);
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   КОНВЕРТ
+========================================= */
+
+.envelope {
+
+    font-size: 80px;
+
+    margin-bottom: 25px;
+
+    animation:
+        envelopeFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes envelopeFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК
+========================================= */
+
+#intro-title {
+
+    min-height: 60px;
+
+    font-size:
+        clamp(30px, 5vw, 58px);
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,0.2);
+}
+
+
+/* =========================================
+   ТЕКСТ
+========================================= */
+
+#intro-text {
+
+    min-height: 130px;
+
+    margin:
+        30px auto;
+
+    max-width: 720px;
+
+    font-size:
+        clamp(17px, 2vw, 23px);
+
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,0.85);
+}
+
+
+/* =========================================
+   ГЛАВНАЯ КНОПКА
+========================================= */
+
+.main-button {
+
+    border: none;
+
+    padding:
+        17px 42px;
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    backdrop-filter:
+        blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation:
+        buttonPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+.main-button:hover {
+
+    transform:
+        scale(1.07);
+
+    background:
+        rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,255,255,0.2);
+}
+
+
+@keyframes buttonPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 0
+            rgba(255,255,255,0);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 25px
+            rgba(255,255,255,0.2);
+    }
+
+}
+
+
+/* =========================================
+   ПОДПИСЬ
+========================================= */
+
+.signature {
+
+    position: absolute;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,0.35);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   СЦЕНА 2 — ШКОЛА
+========================================= */
+
+.scene-school {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #dff3ff,
+            #b8ddf2
+        );
+
+    color:
+        #26394d;
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК ШКОЛЫ
+========================================= */
+
+.school-header {
+
+    position: absolute;
+
+    top: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+
+.chapter {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(38,57,77,0.55);
+
+    margin-bottom: 12px;
+}
+
+
+.school-header h2 {
+
+    font-size:
+        clamp(32px, 5vw, 55px);
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+
+.school-header p {
+
+    font-size: 18px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   ШКОЛЬНЫЕ КОЛОКОЛЬЧИКИ
+========================================= */
+
+.bell {
+
+    position: absolute;
+
+    font-size: 38px;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(0,0,0,0.15)
+        );
+}
+
+
+.bell-1 {
+
+    top: 18%;
+    left: 8%;
+
+    animation:
+        bellSwing1
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+.bell-2 {
+
+    top: 25%;
+    right: 12%;
+
+    font-size: 30px;
+
+    animation:
+        bellSwing2
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.bell-3 {
+
+    bottom: 18%;
+    left: 15%;
+
+    font-size: 28px;
+
+    animation:
+        bellSwing1
+        4.5s
+        ease-in-out
+        infinite;
+}
+
+
+.bell-4 {
+
+    bottom: 25%;
+    right: 18%;
+
+    font-size: 35px;
+
+    animation:
+        bellSwing2
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes bellSwing1 {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-8deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(8deg);
+    }
+}
+
+
+@keyframes bellSwing2 {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(8deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(-8deg);
+    }
+}
+
+
+/* Первый колокольчик */
+
+.bell-1 {
+
+    top: 18%;
+    left: 8%;
+
+    animation:
+        bellSwing1
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Второй */
+
+.bell-2 {
+
+    top: 25%;
+    right: 12%;
+
+    font-size: 30px;
+
+    animation:
+        bellSwing2
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+/* Третий */
+
+.bell-3 {
+
+    bottom: 18%;
+    left: 15%;
+
+    font-size: 28px;
+
+    animation:
+        bellSwing1
+        4.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* Четвёртый */
+
+.bell-4 {
+
+    bottom: 25%;
+    right: 18%;
+
+    font-size: 35px;
+
+    animation:
+        bellSwing2
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* Покачивание */
+
+@keyframes bellSwing1 {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-8deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(8deg);
+    }
+
+}
+
+
+@keyframes bellSwing2 {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(8deg);
+    }
+
+    50% {
+
+        transform:
+            rotate(-8deg);
+    }
+
+}
+
+
+/* =========================================
+   ШКОЛЬНЫЕ ИКОНКИ
+========================================= */
+
+.school-icons {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+}
+
+
+.school-icon {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(0,0,0,0.15)
+        );
+}
+
+
+/* Позиции иконок */
+
+.school-icon:nth-child(1) {
+
+    top: 25%;
+    left: 8%;
+}
+
+
+.school-icon:nth-child(2) {
+
+    top: 35%;
+    left: 20%;
+}
+
+
+.school-icon:nth-child(3) {
+
+    top: 22%;
+    left: 35%;
+}
+
+
+.school-icon:nth-child(4) {
+
+    top: 40%;
+    left: 80%;
+}
+
+
+.school-icon:nth-child(5) {
+
+    top: 30%;
+    left: 90%;
+}
+
+
+.school-icon:nth-child(6) {
+
+    top: 65%;
+    left: 10%;
+}
+
+
+.school-icon:nth-child(7) {
+
+    top: 75%;
+    left: 25%;
+}
+
+
+.school-icon:nth-child(8) {
+
+    top: 70%;
+    left: 75%;
+}
+
+
+.school-icon:nth-child(9) {
+
+    top: 60%;
+    left: 88%;
+}
+
+
+.school-icon:nth-child(10) {
+
+    top: 80%;
+    left: 55%;
+}
+
+
+/* =========================================
+   КАРТОЧКА
+========================================= */
+
+.memory-card {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(850px, 90%);
+
+    min-height: 300px;
+
+    display: flex;
+
+    gap: 35px;
+
+    align-items: center;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.72);
+
+    box-shadow:
+        0 20px 60px
+        rgba(30,70,100,0.18);
+
+    backdrop-filter:
+        blur(10px);
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -45%)
+        scale(0.95);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.memory-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =========================================
+   ФОТОГРАФИЯ
+========================================= */
+
+.photo-frame {
+
+    width: 45%;
+
+    min-height: 280px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.18);
+
+    background: #c5dce9;
+}
+
+
+/* Контейнер фотографии */
+
+.photo-container {
+
+    width: 100%;
+
+    height: 280px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   САМО ФОТО
+========================================= */
+
+#school-photo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    /*
+       В начале фотография размыта
+       и немного увеличена.
+    */
+
+    opacity: 0;
+
+    filter:
+        blur(18px);
+
+    transform:
+        scale(1.08);
+
+    transition:
+        opacity 1.8s ease,
+        filter 2s ease,
+        transform 2s ease;
+}
+
+
+/*
+    Когда появляется класс "photo-visible",
+    фотография становится нормальной.
+*/
+
+#school-photo.photo-visible {
+
+    opacity: 1;
+
+    filter:
+        blur(0);
+
+    transform:
+        scale(1);
+}
+
+
+/* =========================================
+   ПОДСВЕТКА ЛИЦА
+========================================= */
+
+.face-light {
+
+    position: absolute;
+
+    /*
+        Эти координаты потом
+        настроим конкретно под её лицо.
+    */
+
+    left: 50%;
+
+    top: 40%;
+
+    width: 110px;
+
+    height: 110px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.75) 0%,
+            rgba(255,235,190,0.35) 35%,
+            rgba(255,255,255,0) 70%
+        );
+
+    filter:
+        blur(8px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    transition:
+        opacity 1.5s ease;
+
+    animation:
+        faceGlow 2.8s
+        ease-in-out
+        infinite;
+}
+
+
+/*
+    Когда фотография открылась —
+    включаем подсветку.
+*/
+
+.face-light.visible {
+
+    opacity: 1;
+}
+
+
+@keyframes faceGlow {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================
+   ЗАТЕМНЕНИЕ КРАЁВ
+========================================= */
+
+.photo-vignette {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(20,35,45,0.25) 100%
+        );
+}
+
+/* =========================================
+   ТЕКСТ ВОСПОМИНАНИЯ
+========================================= */
+
+.memory-text {
+
+    flex: 1;
+
+    text-align: left;
+}
+
+
+.memory-text h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+
+    color:
+        #314b63;
+}
+
+
+.memory-text p {
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color:
+        #526b7e;
+}
+
+
+/* =========================================
+   ПОДСКАЗКА
+========================================= */
+
+.school-hint {
+
+    position: absolute;
+
+    bottom: 85px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color:
+        rgba(38,57,77,0.55);
+
+    z-index: 10;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+/* =========================================
+   КНОПКА ШКОЛЫ
+========================================= */
+
+.school-button {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    right: 35px;
+
+    padding:
+        13px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        #526f86;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.school-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =========================================
+   АДАПТАЦИЯ ТЕЛЕФОНА
+========================================= */
+
+@media (max-width: 700px) {
+
+
+    /* =====================================
+       ОБЩИЕ НАСТРОЙКИ
+    ===================================== */
+
+    .scene {
+        min-height: 100dvh;
+    }
+
+
+    /* =====================================
+       СЦЕНА 1
+    ===================================== */
+
+    .intro-content {
+
+        width: 88%;
+
+        top: 48%;
+    }
+
+
+    .envelope {
+
+        font-size: 60px;
+
+        margin-bottom: 15px;
+    }
+
+
+    #intro-title {
+
+        font-size: 31px;
+
+        line-height: 1.25;
+
+        letter-spacing: 1px;
+    }
+
+
+    #intro-text {
+
+        margin: 20px auto;
+
+        font-size: 16px;
+
+        line-height: 1.6;
+
+        min-height: 150px;
+    }
+
+
+    .main-button {
+
+        min-height: 52px;
+
+        padding:
+            14px 28px;
+
+        font-size: 17px;
+    }
+
+
+    .signature {
+
+        bottom: 12px;
+
+        font-size: 10px;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================
+       СЦЕНА 2
+    ===================================== */
+
+    .school-header {
+
+        top: 5%;
+
+        width: 90%;
+    }
+
+
+    .chapter {
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .school-header h2 {
+
+        font-size: 32px;
+
+        line-height: 1.15;
+
+        margin-bottom: 10px;
+    }
+
+
+    .school-header p {
+
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================
+       ШКОЛЬНЫЕ ИКОНКИ
+    ===================================== */
+
+    .school-icon {
+
+        font-size: 27px;
+
+        /*
+           Увеличиваем область,
+           по которой удобно нажимать.
+        */
+
+        padding: 8px;
+
+        margin: -8px;
+    }
+
+
+    /* =====================================
+       КАРТОЧКА
+    ===================================== */
+
+    .memory-card {
+
+        top: 53%;
+
+        width: 88%;
+
+        min-height: auto;
+
+        max-height: 61vh;
+
+        overflow-y: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 18px;
+
+        border-radius: 22px;
+    }
+
+
+    /* =====================================
+       ФОТО
+    ===================================== */
+
+    .photo-frame {
+
+        width: 100%;
+
+        min-height: 180px;
+
+        flex-shrink: 0;
+
+        border-radius: 15px;
+    }
+
+
+    .photo-container {
+
+        height: 180px;
+    }
+
+
+    /* =====================================
+       ТЕКСТ
+    ===================================== */
+
+    .memory-text {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .memory-text h3 {
+
+        font-size: 23px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .memory-text p {
+
+        font-size: 15px;
+
+        line-height: 1.55;
+    }
+
+
+    /* =====================================
+       ПОДСКАЗКА
+    ===================================== */
+
+    .school-hint {
+
+        bottom: 70px;
+
+        font-size: 12px;
+
+        width: 90%;
+
+        text-align: center;
+    }
+
+
+    /* =====================================
+       КНОПКА
+    ===================================== */
+
+    .school-button {
+
+        bottom: 15px;
+
+        left: 50%;
+
+        right: auto;
+
+        transform:
+            translateX(-50%);
+
+        padding:
+            12px 25px;
+
+        min-height: 46px;
+
+        font-size: 16px;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================
+       КОЛОКОЛЬЧИКИ
+    ===================================== */
+
+    .bell {
+
+        font-size: 28px;
+    }
+
+
+    .bell-1 {
+
+        top: 22%;
+        left: 4%;
+    }
+
+
+    .bell-2 {
+
+        top: 20%;
+        right: 5%;
+    }
+
+
+    .bell-3 {
+
+        bottom: 17%;
+        left: 5%;
+    }
+
+
+    .bell-4 {
+
+        bottom: 20%;
+        right: 7%;
+    }
+
+}
+ /* =========================================
+    СЦЕНА 3 — РАССТОЯНИЕ
+ ========================================= */
+
+.scene-distance {
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #182d58,
+            #081328 65%,
+            #030711
+        );
+
+    color: white;
+
+    touch-action: none;
+}
+
+
+/* =========================================
+   ЗВЁЗДЫ
+========================================= */
+
+.distance-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        100px 100px;
+
+    opacity: 0.35;
+
+    animation:
+        distanceStars
+        25s
+        linear
+        infinite;
+}
+
+
+@keyframes distanceStars {
+
+    from {
+
+        transform:
+            translateY(0);
+    }
+
+    to {
+
+        transform:
+            translateY(100px);
+    }
+
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК
+========================================= */
+
+.distance-header {
+
+    position: absolute;
+
+    top: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+
+.distance-header .chapter {
+
+    color:
+        rgba(255,255,255,0.45);
+}
+
+
+.distance-header h2 {
+
+    font-size:
+        clamp(38px, 6vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 30px
+        rgba(100,170,255,0.3);
+}
+
+
+.distance-header p {
+
+    font-size: 18px;
+
+    color:
+        rgba(255,255,255,0.65);
+}
+
+
+/* =========================================
+   КАРТА
+========================================= */
+
+.distance-map {
+
+    position: absolute;
+
+    top: 30%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: min(900px, 90%);
+
+    height: 38%;
+
+    z-index: 5;
+
+    touch-action: none;
+}
+
+
+/* =========================================
+   ТОЧКИ ГОРОДОВ
+========================================= */
+
+.city-point {
+
+    position: absolute;
+
+    z-index: 10;
+
+    text-align: center;
+
+    cursor: pointer;
+
+}
+
+
+.city-one {
+
+    left: 5%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.city-two {
+
+    right: 5%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* =========================================
+   ТОЧКА
+========================================= */
+
+.point {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: auto;
+
+    font-size: 38px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(90,160,255,0.12);
+
+    box-shadow:
+        0 0 25px
+        rgba(90,160,255,0.5);
+
+    animation:
+        pointPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes pointPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 15px
+            rgba(90,160,255,0.3);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 35px
+            rgba(90,160,255,0.8);
+    }
+
+}
+
+
+/* =========================================
+   НАЗВАНИЕ ГОРОДА
+========================================= */
+
+.city-name {
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+.city-label {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color:
+        rgba(255,255,255,0.5);
+}
+
+
+/* =========================================
+   ЛИНИЯ
+========================================= */
+
+.distance-line {
+
+    position: absolute;
+
+    left: 12%;
+
+    right: 12%;
+
+    top: 50%;
+
+    height: 3px;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,160,255,0),
+            rgba(90,160,255,0.8),
+            rgba(255,130,190,0.8),
+            rgba(90,160,255,0)
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(100,170,255,0.8);
+
+    transform-origin: left;
+
+    scale: 0 1;
+
+    transition:
+        scale 2s
+        cubic-bezier(.2,.8,.2,1);
+
+    border-radius: 10px;
+}
+
+
+.distance-line.active {
+
+    scale: 1 1;
+}
+
+
+/* =========================================
+   СЕРДЦЕ
+========================================= */
+
+.travel-heart {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 12%;
+
+    font-size: 30px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    opacity: 0;
+
+    z-index: 20;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,100,150,0.9)
+        );
+}
+
+
+.travel-heart.active {
+
+    animation:
+        heartTravel
+        2.5s
+        ease-in-out
+        forwards;
+}
+
+
+@keyframes heartTravel {
+
+    0% {
+
+        left: 12%;
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.4);
+    }
+
+    10% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    90% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        left: 88%;
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.3);
+    }
+
+}
+
+
+/* =========================================
+   ПОДСКАЗКА
+========================================= */
+
+.distance-hint {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 5%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 15px;
+
+    text-align: center;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+/* =========================================
+   СООБЩЕНИЕ
+========================================= */
+
+.distance-message {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 7%;
+
+    transform:
+        translateX(-50%)
+        translateY(30px);
+
+    width: min(650px, 88%);
+
+    text-align: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index: 15;
+}
+
+
+.distance-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.distance-message h3 {
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,150,200,0.3);
+}
+
+
+.distance-message p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,0.75);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   КНОПКА
+========================================= */
+
+.distance-button {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    right: 35px;
+
+    padding:
+        13px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    z-index: 30;
+
+    backdrop-filter:
+        blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.distance-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,0.2);
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 700px) {
+
+    .distance-header {
+
+        top: 5%;
+    }
+
+
+    .distance-header h2 {
+
+        font-size: 38px;
+    }
+
+
+    .distance-header p {
+
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    .distance-map {
+
+        top: 31%;
+
+        width: 94%;
+
+        height: 35%;
+    }
+
+
+    .city-one {
+
+        left: 0;
+    }
+
+
+    .city-two {
+
+        right: 0;
+    }
+
+
+    .point {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 30px;
+    }
+
+
+    .city-name {
+
+        font-size: 14px;
+    }
+
+
+    .city-label {
+
+        font-size: 11px;
+    }
+
+
+    .distance-line {
+
+        left: 18%;
+
+        right: 18%;
+    }
+
+
+    .travel-heart {
+
+        font-size: 25px;
+    }
+
+
+    .distance-message {
+
+        bottom: 12%;
+
+        width: 88%;
+    }
+
+
+    .distance-message h3 {
+
+        font-size: 22px;
+    }
+
+
+    .distance-message p {
+
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+
+
+    .distance-button {
+
+        left: 50%;
+
+        right: auto;
+
+        bottom: 15px;
+
+        transform:
+            translateX(-50%);
+
+        min-height: 46px;
+
+        white-space: nowrap;
+    }
+
+}
+/* =========================================
+   СЦЕНА 4 — 1 ГОД СЧАСТЬЯ
+========================================= */
+
+.scene-year {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            #ffeef5,
+            #ffdce9 55%,
+            #f7c7da
+        );
+
+    color:
+        #633d4d;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ЛЕПЕСТКИ
+========================================= */
+
+.petals {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.petals span {
+
+    position: absolute;
+
+    top: -50px;
+
+    font-size: 25px;
+
+    opacity: 0.65;
+
+    animation:
+        petalFall
+        linear
+        infinite;
+}
+
+
+/* Разные положения */
+
+.petals span:nth-child(1) {
+
+    left: 5%;
+
+    animation-duration: 8s;
+
+    animation-delay: 0s;
+}
+
+
+.petals span:nth-child(2) {
+
+    left: 15%;
+
+    animation-duration: 11s;
+
+    animation-delay: 2s;
+}
+
+
+.petals span:nth-child(3) {
+
+    left: 25%;
+
+    animation-duration: 9s;
+
+    animation-delay: 4s;
+}
+
+
+.petals span:nth-child(4) {
+
+    left: 35%;
+
+    animation-duration: 12s;
+
+    animation-delay: 1s;
+}
+
+
+.petals span:nth-child(5) {
+
+    left: 48%;
+
+    animation-duration: 10s;
+
+    animation-delay: 3s;
+}
+
+
+.petals span:nth-child(6) {
+
+    left: 60%;
+
+    animation-duration: 9s;
+
+    animation-delay: 5s;
+}
+
+
+.petals span:nth-child(7) {
+
+    left: 70%;
+
+    animation-duration: 13s;
+
+    animation-delay: 0s;
+}
+
+
+.petals span:nth-child(8) {
+
+    left: 80%;
+
+    animation-duration: 10s;
+
+    animation-delay: 2s;
+}
+
+
+.petals span:nth-child(9) {
+
+    left: 90%;
+
+    animation-duration: 12s;
+
+    animation-delay: 4s;
+}
+
+
+.petals span:nth-child(10) {
+
+    left: 55%;
+
+    animation-duration: 14s;
+
+    animation-delay: 6s;
+}
+
+
+@keyframes petalFall {
+
+    0% {
+
+        transform:
+            translateY(-50px)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+
+        opacity: 0.65;
+    }
+
+    50% {
+
+        transform:
+            translateY(50vh)
+            translateX(80px)
+            rotate(180deg);
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(-70px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК
+========================================= */
+
+.year-header {
+
+    position: absolute;
+
+    top: 6%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+
+    width: 90%;
+
+    z-index: 10;
+}
+
+
+.year-header .chapter {
+
+    color:
+        rgba(99,61,77,0.55);
+}
+
+
+.year-header h2 {
+
+    font-size:
+        clamp(38px, 6vw, 65px);
+
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+
+.year-header p {
+
+    font-size: 18px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   СЧЁТЧИК
+========================================= */
+
+.counter-container {
+    position: absolute;
+
+    top: 22%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+.day-counter {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(70px, 10vw, 120px);
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    color:
+        #b34e72;
+
+    text-shadow:
+        0 5px 20px
+        rgba(179,78,114,0.2);
+}
+
+
+.counter-label {
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(99,61,77,0.7);
+}
+
+
+/* =========================================
+   КАРТОЧКА
+========================================= */
+
+.year-card {
+
+    position: absolute;
+
+    top: 60%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.95);
+
+    width:
+        min(850px, 90%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    box-shadow:
+        0 20px 60px
+        rgba(120,50,80,0.15);
+
+    backdrop-filter:
+        blur(12px);
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.year-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =========================================
+   ФОТО
+========================================= */
+
+.year-photo {
+
+    width: 45%;
+
+    height: 260px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(100,40,70,0.2);
+}
+
+
+#year-photo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    filter:
+        blur(15px);
+
+    transform:
+        scale(1.08);
+
+    transition:
+        opacity 1.5s ease,
+        filter 2s ease,
+        transform 2s ease;
+}
+
+
+#year-photo.visible {
+
+    opacity: 1;
+
+    filter:
+        blur(0);
+
+    transform:
+        scale(1);
+}
+
+
+/* =========================================
+   СВЕЧЕНИЕ
+========================================= */
+
+.year-photo-glow {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,220,235,0.3),
+            transparent 55%
+        );
+
+    pointer-events: none;
+
+    animation:
+        photoGlow
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes photoGlow {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+    }
+
+    50% {
+
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================
+   ТЕКСТ
+========================================= */
+
+.year-text {
+
+    flex: 1;
+}
+
+
+.year-text h3 {
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+
+.year-text p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color:
+        #745362;
+}
+
+
+/* =========================================
+   ВИДЕО
+========================================= */
+
+.video-container {
+
+    position: absolute;
+
+    right: 5%;
+
+    bottom: 8%;
+
+    width: 190px;
+
+    text-align: center;
+
+    z-index: 15;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.video-container.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+#year-video {
+
+    width: 190px;
+
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(100,40,70,0.2);
+}
+
+
+.video-container p {
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    color:
+        rgba(99,61,77,0.65);
+}
+
+
+/* =========================================
+   КНОПКА
+========================================= */
+
+.year-button {
+
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 25px;
+
+    padding:
+        14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        #b34e72;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    z-index: 30;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.year-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(179,78,114,0.3);
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 700px) {
+
+    .year-header {
+
+        top: 5%;
+    }
+
+
+    .year-header h2 {
+
+        font-size: 37px;
+    }
+
+
+    .year-header p {
+
+        font-size: 14px;
+    }
+
+
+    .counter-container {
+
+        top: 19%;
+    }
+
+
+    .day-counter {
+
+        font-size: 75px;
+    }
+
+
+    .counter-label {
+
+        font-size: 14px;
+    }
+
+
+    .year-card {
+
+    position: absolute;
+
+    top: 60%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 88%;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    max-height: 50vh;
+
+    overflow-y: auto;
+}
+
+
+    .year-photo {
+
+        width: 100%;
+
+        height: 170px;
+
+        flex-shrink: 0;
+    }
+
+
+    .year-text {
+
+        text-align: center;
+    }
+
+
+    .year-text h3 {
+
+        font-size: 23px;
+    }
+
+
+    .year-text p {
+
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+
+
+    .video-container {
+
+        display: none;
+    }
+
+
+    .year-button {
+
+        left: 50%;
+
+        right: auto;
+
+        bottom: 15px;
+
+        transform:
+            translateX(-50%);
+
+        min-height: 46px;
+
+        white-space: nowrap;
+
+        font-size: 14px;
+    }
+
+}
+/* =========================================
+   ФИНАЛ — БОЛЬШОЕ СЕРДЦЕ
+========================================= */
+
+.scene-final {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #241337,
+            #0b0614 70%,
+            #030207
+        );
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ЗВЁЗДЫ
+========================================= */
+
+.final-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px;
+
+    opacity: 0.35;
+
+    animation:
+        finalStars
+        30s
+        linear
+        infinite;
+}
+
+
+@keyframes finalStars {
+
+    from {
+
+        transform:
+            translateY(0);
+    }
+
+    to {
+
+        transform:
+            translateY(90px);
+    }
+
+}
+
+
+/* =========================================
+   ТОЧКА
+========================================= */
+
+.heart-start {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 20px
+        white;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    z-index: 20;
+}
+
+
+.heart-start.visible {
+
+    animation:
+        heartStart
+        1.5s
+        ease-out
+        forwards;
+}
+
+
+@keyframes heartStart {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+    }
+
+    30% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(2);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================
+   СЕРДЦЕ
+========================================= */
+
+.heart-container {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: min(500px, 80vw);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease,
+        transform 1.5s cubic-bezier(.2,.8,.2,1);
+
+    z-index: 10;
+}
+
+
+.heart-container.visible {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+.heart-svg {
+
+    width: 100%;
+
+    height: auto;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   КОНТУР
+========================================= */
+
+#heart-outline {
+
+    fill: none;
+
+    stroke:
+        #ff668f;
+
+    stroke-width: 5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,80,130,0.8)
+        );
+
+}
+
+
+/* =========================================
+   ЗАПОЛНЕНИЕ
+========================================= */
+
+#heart-fill {
+
+    fill:
+        rgba(255,70,120,0.8);
+
+    stroke: none;
+
+    opacity: 0;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(255,50,120,0.8)
+        );
+
+    transition:
+        opacity 1.5s ease;
+}
+
+
+#heart-fill.visible {
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   ПУЛЬСАЦИЯ
+========================================= */
+
+.heart-container.pulse {
+
+    animation:
+        heartPulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.06);
+    }
+
+}
+
+
+/* =========================================
+   БЛИК
+========================================= */
+
+.heart-shine {
+
+    position: absolute;
+
+    top: 20%;
+
+    left: 22%;
+
+    width: 25%;
+
+    height: 12%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.45);
+
+    filter:
+        blur(12px);
+
+    transform:
+        rotate(-35deg);
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.heart-container.glow
+.heart-shine {
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   ФИНАЛЬНЫЙ ТЕКСТ
+========================================= */
+
+.final-message {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 8%;
+
+    transform:
+        translateX(-50%)
+        translateY(30px);
+
+    width: min(700px, 90%);
+
+    text-align: center;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+    z-index: 30;
+
+    text-shadow:
+        0 2px 15px
+        rgba(0,0,0,0.4);
+}
+
+
+.final-message.visible {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.final-years {
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.8;
+
+    margin-bottom: 8px;
+}
+
+
+.final-message h1 {
+
+    font-size:
+        clamp(30px, 5vw, 48px);
+
+    font-weight: normal;
+
+    margin:
+        0 0 20px;
+}
+
+
+.final-message p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,0.75);
+}
+
+
+.final-love {
+
+    margin:
+        25px 0;
+
+    font-size: 24px;
+
+    color:
+        #ff9bb6;
+}
+
+
+/* =========================================
+   ПОДПИСЬ
+========================================= */
+
+.final-signature {
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color:
+        rgba(255,255,255,0.75);
+}
+
+
+/* =========================================
+   СЕКРЕТНАЯ КНОПКА
+========================================= */
+
+.secret-button {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        rgba(255,255,255,0.15);
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease;
+
+    z-index: 50;
+}
+
+
+.secret-button:hover {
+
+    color:
+        rgba(255,255,255,0.5);
+}
+
+
+/* =========================================
+   MADE WITH
+========================================= */
+
+.made-with {
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 18px;
+
+    font-size: 10px;
+
+    color:
+        rgba(255,255,255,0.3);
+
+    z-index: 50;
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 700px) {
+
+    .heart-container {
+
+        width: 88vw;
+
+        top: 38%;
+    }
+
+
+    .final-message {
+
+        bottom: 9%;
+
+        width: 88%;
+    }
+
+
+    .final-years {
+
+        font-size: 14px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .final-message h1 {
+
+        font-size: 28px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .final-message p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .final-love {
+
+        font-size: 20px;
+
+        margin: 15px 0;
+    }
+
+
+    .final-signature {
+
+        font-size: 15px;
+    }
+
+
+    .secret-button {
+
+        bottom: 10px;
+
+        left: 10px;
+
+        font-size: 9px;
+    }
+
+
+    .made-with {
+
+        right: 10px;
+
+        bottom: 10px;
+
+        font-size: 9px;
+    }
+
+}
+/* =========================================
+   ЧАСТИЦЫ СЕРДЦА
+========================================= */
+
+.heart-particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 25;
+}
+
+
+.heart-particle {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    font-size: 16px;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        heartExplosion
+        var(--duration)
+        ease-out
+        forwards;
+
+    animation-delay:
+        var(--delay);
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,80,130,0.8)
+        );
+}
+
+
+@keyframes heartExplosion {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+
+    10% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(
+                var(--rotation)
+            )
+            scale(
+                var(--scale)
+            );
+    }
+
+}
+/* =========================================
+   ФИНАЛЬНОЕ СВЕЧЕНИЕ СЕРДЦА
+========================================= */
+
+.heart-final-glow {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 70, 130, 0.35),
+            rgba(255, 70, 130, 0.12) 40%,
+            transparent 70%
+        );
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    opacity: 0;
+
+    filter:
+        blur(20px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+
+.heart-container.final-glow
+.heart-final-glow {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.5);
+
+    animation:
+        finalGlowPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes finalGlowPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.45;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.4);
+    }
+
+    50% {
+
+        opacity: 0.8;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.7);
+    }
+
+}
+/* =========================================
+   СЕКРЕТНОЕ ОКНО
+========================================= */
+
+.secret-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+
+    z-index: 1000;
+}
+
+
+.secret-modal.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================
+   ЗАТЕМНЕНИЕ
+========================================= */
+
+.secret-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(5, 2, 12, 0.82);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================================
+   ОКНО
+========================================= */
+
+.secret-window {
+
+    position: relative;
+
+    width:
+        min(500px, 88%);
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    padding:
+        40px 35px;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(48,22,61,0.97),
+            rgba(20,9,30,0.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,130,170,0.25);
+
+    box-shadow:
+
+        0 30px 100px
+        rgba(0,0,0,0.6),
+
+        0 0 60px
+        rgba(255,60,130,0.12);
+
+    text-align: center;
+
+    transform:
+        translateY(40px)
+        scale(0.9);
+
+    transition:
+        transform 0.6s
+        cubic-bezier(.2,.8,.2,1);
+
+    z-index: 2;
+}
+
+
+.secret-modal.visible
+.secret-window {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================
+   КНОПКА X
+========================================= */
+
+.secret-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color:
+        rgba(255,255,255,0.7);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.secret-close:hover {
+
+    background:
+        rgba(255,255,255,0.15);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================
+   СЕРДЦЕ
+========================================= */
+
+.secret-heart {
+
+    font-size: 50px;
+
+    margin-bottom: 10px;
+
+    animation:
+        secretHeartPulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes secretHeartPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+    }
+
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК
+========================================= */
+
+.secret-window h2 {
+
+    font-size:
+        clamp(24px, 5vw, 32px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+
+    color:
+        #ffabc3;
+}
+
+
+.secret-window p {
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,0.75);
+}
+
+
+.secret-window strong {
+
+    color:
+        #ff9dbb;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   QR
+========================================= */
+
+.qr-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin:
+        25px 0 15px;
+}
+
+
+.qr-placeholder {
+
+    width: 180px;
+
+    height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 20px;
+
+    background:
+        white;
+
+    color:
+        #b34e72;
+
+    font-size: 50px;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(255,120,160,0.25);
+}
+
+
+.qr-placeholder span {
+
+    font-size: 11px;
+
+    color:
+        #777;
+}
+
+
+/* =========================================
+   ТЕКСТ ПОД QR
+========================================= */
+
+.qr-text {
+
+    font-size: 12px !important;
+
+    opacity: 0.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   КНОПКА
+========================================= */
+
+.secret-bottom-button {
+
+    padding:
+        13px 25px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        #b34e72;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.secret-bottom-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(179,78,114,0.4);
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 700px) {
+
+    .secret-window {
+
+        padding:
+            35px 22px;
+
+        max-height:
+            90vh;
+
+        border-radius:
+            25px;
+    }
+
+
+    .secret-heart {
+
+        font-size: 42px;
+    }
+
+
+    .secret-window h2 {
+
+        font-size: 24px;
+    }
+
+
+    .secret-window p {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .qr-placeholder {
+
+        width: 150px;
+
+        height: 150px;
+    }
+
+}
+/* =========================================
+   СЦЕНА ВОСПОМИНАНИЙ
+========================================= */
+
+.scene-memories {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #fff9f5,
+            #ffeef4
+        );
+
+    color:
+        #633d4d;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding:
+        40px 20px 100px;
+}
+
+
+/* =========================================
+   ЗАГОЛОВОК
+========================================= */
+
+.memories-header {
+
+    position: relative;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    z-index: 5;
+}
+
+
+.memories-header h2 {
+
+    font-size:
+        clamp(35px, 5vw, 55px);
+
+    font-weight: normal;
+
+    margin:
+        10px 0;
+}
+
+
+.memories-header p {
+
+    opacity: 0.65;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   МЕСЯЦЫ
+========================================= */
+
+.months-grid {
+
+    width:
+        min(850px, 95%);
+
+    margin:
+        0 auto 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.month-button {
+
+    padding:
+        15px 10px;
+
+    border:
+        1px solid
+        rgba(179,78,114,0.15);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    color:
+        #633d4d;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.month-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(120,50,80,0.12);
+}
+
+
+.month-button.active {
+
+    background:
+        #b34e72;
+
+    color: white;
+
+    box-shadow:
+        0 8px 25px
+        rgba(179,78,114,0.25);
+}
+
+
+/* =========================================
+   ГАЛЕРЕЯ
+========================================= */
+
+.memory-gallery {
+
+    width:
+        min(1000px, 95%);
+
+    margin:
+        20px auto;
+
+    text-align: center;
+
+    min-height: 300px;
+}
+
+
+.gallery-title {
+
+    font-size: 28px;
+
+    margin:
+        15px 0 25px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+.gallery-title.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================
+   ФОТОГРАФИИ
+========================================= */
+
+.gallery-photos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    padding-bottom: 20px;
+}
+
+
+.memory-photo {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(100,40,70,0.15);
+
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        rotate(-3deg)
+        scale(0.9);
+
+    animation:
+        photoAppear
+        0.7s
+        ease
+        forwards;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.memory-photo:hover {
+
+    transform:
+        translateY(-5px)
+        rotate(0deg)
+        scale(1.03);
+}
+
+
+@keyframes photoAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================
+   КНОПКА ДАЛЬШЕ
+========================================= */
+
+.memories-next {
+
+    display: block;
+
+    margin:
+        30px auto 0;
+
+    padding:
+        14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        #b34e72;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.memories-next:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(179,78,114,0.3);
+}
+
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================================= */
+
+@media (max-width: 700px) {
+
+    .scene-memories {
+
+        padding:
+            30px 12px 90px;
+    }
+
+
+    .memories-header {
+
+        margin-bottom: 25px;
+    }
+
+
+    .memories-header h2 {
+
+        font-size: 34px;
+    }
+
+
+    .memories-header p {
+
+        font-size: 13px;
+    }
+
+
+    .months-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+    }
+
+
+    .month-button {
+
+        padding:
+            12px 5px;
+
+        font-size: 13px;
+
+        border-radius: 12px;
+    }
+
+
+    .gallery-photos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .gallery-title {
+
+        font-size: 23px;
+    }
+
+}
+/* ==========================================
+   ПОЛНОЭКРАННЫЙ ПРОСМОТР ФОТО
+   ========================================== */
+
+.photo-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+
+}
+
+
+/* Открытое окно */
+
+.photo-modal.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* Затемнение */
+
+.photo-modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(10, 5, 20, 0.92);
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+/* Контейнер фотографии */
+
+.photo-viewer {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 85vw;
+
+    max-height: 85vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* Сама фотография */
+
+#modal-photo {
+
+    max-width: 85vw;
+
+    max-height: 78vh;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.6);
+
+    transform: scale(0.85);
+
+    opacity: 0;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+
+}
+
+
+/* Анимация появления */
+
+.photo-modal.visible #modal-photo {
+
+    transform: scale(1);
+
+    opacity: 1;
+
+}
+
+
+/* Счётчик */
+
+.photo-counter {
+
+    margin-top: 18px;
+
+    color: white;
+
+    font-size: 16px;
+
+    opacity: 0.75;
+
+}
+
+
+/* Кнопка закрытия */
+
+.photo-close {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 30px;
+
+    z-index: 5;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.photo-close:hover {
+
+    transform: rotate(90deg) scale(1.1);
+
+    background:
+        rgba(255,255,255,0.22);
+
+}
+
+
+/* Стрелки */
+
+.photo-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 60px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 48px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.photo-arrow:hover {
+
+    background:
+        rgba(255,255,255,0.22);
+
+}
+
+
+/* Левая стрелка */
+
+.photo-prev {
+
+    left: 30px;
+
+}
+
+
+/* Правая стрелка */
+
+.photo-next {
+
+    right: 30px;
+
+}
+
+
+/* ==========================================
+   ТЕЛЕФОН
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    #modal-photo {
+
+        max-width: 92vw;
+
+        max-height: 75vh;
+
+        border-radius: 12px;
+
+    }
+
+
+    .photo-arrow {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 36px;
+
+    }
+
+
+    .photo-prev {
+
+        left: 10px;
+
+    }
+
+
+    .photo-next {
+
+        right: 10px;
+
+    }
+
+
+    .photo-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 28px;
+
+    }
+
+}
+/* ==========================================
+   АНИМАЦИЯ СВАЙПА ФОТО
+   ========================================== */
+
+#modal-photo {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Фото двигается за пальцем */
+
+#modal-photo.swipe-moving {
+    transition: none;
+}
+
+
+/* Фото улетает влево */
+
+#modal-photo.swipe-left {
+    transform: translateX(-120vw) rotate(-12deg) scale(0.8);
+    opacity: 0;
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+/* Фото улетает вправо */
+
+#modal-photo.swipe-right {
+    transform: translateX(120vw) rotate(12deg) scale(0.8);
+    opacity: 0;
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+/* Новое фото появляется */
+
+#modal-photo.swipe-new {
+    animation: photoComeIn 0.4s ease;
+}
+
+
+@keyframes photoComeIn {
+
+    from {
+        transform:
+            translateX(80vw)
+            rotate(10deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    to {
+        transform:
+            translateX(0)
+            rotate(0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+}
